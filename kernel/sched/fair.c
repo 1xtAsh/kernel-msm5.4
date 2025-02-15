@@ -44,8 +44,8 @@ static inline bool task_fits_max(struct task_struct *p, int cpu);
  *
  * (default: 6ms * (1 + ilog(ncpus)), units: nanoseconds)
  */
-unsigned int sysctl_sched_latency			= 5000000ULL;
-static unsigned int normalized_sysctl_sched_latency	= 5000000ULL;
+unsigned int sysctl_sched_latency			= 20000000ULL;
+static unsigned int normalized_sysctl_sched_latency	= 20000000ULL;
 
 /*
  * The initial- and re-scaling of tunables is configurable
@@ -65,13 +65,13 @@ enum sched_tunable_scaling sysctl_sched_tunable_scaling = SCHED_TUNABLESCALING_N
  *
  * (default: 0.75 msec * (1 + ilog(ncpus)), units: nanoseconds)
  */
-unsigned int sysctl_sched_min_granularity			= 750000ULL;
-static unsigned int normalized_sysctl_sched_min_granularity	= 750000ULL;
+unsigned int sysctl_sched_min_granularity			= 3000000ULL;
+static unsigned int normalized_sysctl_sched_min_granularity	= 3000000ULL;
 
 /*
  * This value is kept at sysctl_sched_latency/sysctl_sched_min_granularity
  */
-static unsigned int sched_nr_latency = 10;
+static unsigned int sched_nr_latency = 8;
 
 /*
  * After fork, child runs first. If set to 0 (default) then
